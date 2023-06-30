@@ -9,6 +9,8 @@ function validarNum(numA, numB) {
 }
 
 form.addEventListener("submit", function (e) {
+  console.log("testeeeeeeeeee");
+
   e.preventDefault();
 
   let formEValido = false;
@@ -22,5 +24,6 @@ form.addEventListener("submit", function (e) {
     document.querySelector(".error-message").style.display = "block";
   } else {
     document.querySelector(".sucess-message").style.display = "block";
+    document.querySelector(".sucess-message").innerHTML = "Sucesso";
   }
 });
