@@ -9,21 +9,37 @@ function validarNum(numA, numB) {
 }
 
 form.addEventListener("submit", function (e) {
-  console.log("testeeeeeeeeee");
-
   e.preventDefault();
 
   let formEValido = false;
 
-  const n1 = document.getElementById("numA");
-  const n2 = document.getElementById("numB");
-  const mensagemSucesso = `O número <b>${n2.value}</b> é Maior que o número <b>${n1.value}</b> - Parabéns Sucesso!`;
+  const number1 = document.getElementById("numA");
+  const number2 = document.getElementById("numB");
+  const mensagemSucesso = `O número <b>${number2.value}</b> é Maior que o número <b>${number1.value}</b> - Parabéns Sucesso!`;
 
   formEValido = validarNum(number1.value, number2.value);
-  if (!formEValido) {
-    document.querySelector(".error-message").style.display = "block";
+  if (formEValido) {
+    const containerMensagemSucesso = querySelector(".sucess-message");
+    containerMensagemSucesso.innerHTML = mensagemSucesso;
+    containerMensagemSucesso.style.display = "block";
+
+    number1.value = "";
+    number2.valeu = "";
   } else {
-    document.querySelector(".sucess-message").style.display = "block";
-    document.querySelector(".sucess-message").innerHTML = "Sucesso";
+    number1.style.border = "1px solid rgb(255, 230, 38)";
+    document.querySelector(".error-message").style.display = "block";
   }
 });
+
+/*
+number1.addEventListener("keyup", function (e) {
+  if (!formEValido) {
+    number1.classList.add("error");
+    //nomeBeneficiario.style.border = "1px solid red";
+    document.querySelector(".error-message").style.display = "block";
+  } else {
+    number1.classList.remove("error");
+    document.querySelector(".error-message").style.display = "none";
+  }
+});
+*/
